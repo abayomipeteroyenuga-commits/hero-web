@@ -9,7 +9,6 @@ const groups = [
   { label: "Admissions", href: "/admissions", children: [{ label: "Why Choose Us", href: "/why-choose-us" }, { label: "Admission Process", href: "/admissions" }, { label: "FAQs", href: "/faqs" }] },
   { label: "Gallery", href: "/gallery" },
   { label: "News & Events", href: "/news-events" },
-  { label: "Parents", href: "/parents", children: [{ label: "Parent Information", href: "/parents" }, { label: "School Calendar", href: "/school-calendar" }, { label: "FAQs", href: "/faqs" }] },
   { label: "Contact", href: "/contact" },
 ];
 
