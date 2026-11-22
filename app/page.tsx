@@ -3,12 +3,12 @@ import Image from "next/image";
 import { useState } from "react";
 
 const nav = [
-  { label: "Home", href: "#home" },
-  { label: "About Us", href: "#about", children: [{ label: "Our Story", href: "#about" }, { label: "Founders Corner", href: "#founders" }, { label: "Our Values", href: "#values" }] },
-  { label: "Admissions", href: "#admissions", children: [{ label: "Why Choose Us", href: "#why" }, { label: "Admission Process", href: "#admissions" }, { label: "FAQs", href: "#faqs" }] },
-  { label: "Gallery", href: "#gallery" }, { label: "News & Events", href: "#news" },
-  { label: "Parents", href: "#parents", children: [{ label: "Parent Information", href: "#parents" }, { label: "School Calendar", href: "#calendar" }, { label: "FAQs", href: "#faqs" }] },
-  { label: "Contact", href: "#contact" }
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about", children: [{ label: "Our Story", href: "/about" }, { label: "Founders Corner", href: "/founders-corner" }, { label: "Our Values", href: "/values" }] },
+  { label: "Admissions", href: "/admissions", children: [{ label: "Why Choose Us", href: "/why-choose-us" }, { label: "Admission Process", href: "/admissions" }, { label: "FAQs", href: "/faqs" }] },
+  { label: "Gallery", href: "/gallery" }, { label: "News & Events", href: "/news-events" },
+  { label: "Parents", href: "/parents", children: [{ label: "Parent Information", href: "/parents" }, { label: "School Calendar", href: "/school-calendar" }, { label: "FAQs", href: "/faqs" }] },
+  { label: "Contact", href: "/contact" }
 ];
 const faqs = [
   ["Which age groups does the school serve?", "Hero of Knowledge School provides Creche, Nursery and Primary education."],
