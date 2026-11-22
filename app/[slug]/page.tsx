@@ -15,8 +15,9 @@ const pages: Record<string,{eyebrow:string,title:string,lead:string,body:string[
   faqs:{eyebrow:"FREQUENTLY ASKED QUESTIONS",title:"Helpful answers for families.",lead:"A few things parents often want to know.",body:["Which age groups does the school serve? Hero of Knowledge School provides Creche, Nursery and Primary education.","How do I begin admission? Contact the school to ask about availability, school visits and registration requirements.","Can I arrange a school visit? Please contact the school office to arrange a suitable visit.","Where can I get current fees and term dates? Request the latest approved information directly from the school office."],links:[{label:"Admissions",href:"/admissions"},{label:"Contact Us",href:"/contact"}]},
   contact:{eyebrow:"CONTACT AND ENQUIRIES",title:"We'd love to hear from you.",lead:"Speak with Hero of Knowledge School.",body:["Whether you are exploring admission or have a question about the school, the team will be glad to help.","Use the school's official contact channels to enquire about admission, arrange a school visit or request current school information. Official phone number, email and campus address will be added once confirmed."],links:[{label:"Admissions",href:"/admissions"}]}
 };
-export default function IndependentPage({params}:{params:{slug:string}}) {
- const data=pages[params.slug];
+export default async function IndependentPage({params}:{params:Promise<{slug:string}>}) {
+ const { slug } = await params;
+ const data=pages[slug];
  if(!data) return <main className="inner-page"><h1>Page not found</h1><Link href="/">Return to Home →</Link></main>;
  return <main className="inner-page">
   <div className="topbar"><span>CRECHE | NURSERY | PRIMARY</span><span>KNOWLEDGE ENLIGHTENS THE MIND</span><Link href="/contact">SCHOOL ENQUIRIES ↗</Link></div>
