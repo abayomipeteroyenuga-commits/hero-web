@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const pages: Record<string,{eyebrow:string,title:string,lead:string,body:string[],links:{label:string,href:string}[]}> = {
@@ -21,7 +22,7 @@ export default async function IndependentPage({params}:{params:Promise<{slug:str
  if(!data) return <main className="inner-page"><h1>Page not found</h1><Link href="/">Return to Home →</Link></main>;
  return <main className="inner-page">
   <div className="topbar"><span>CRECHE | NURSERY | PRIMARY</span><span>KNOWLEDGE ENLIGHTENS THE MIND</span><Link href="/contact">SCHOOL ENQUIRIES ↗</Link></div>
-  <header className="site-header"><Link className="brand" href="/"><span className="brand-mark">H</span><span><b>HERO OF KNOWLEDGE</b><small>SCHOOL</small></span></Link><nav className="nav route-nav"><Link href="/">Home</Link><Link href="/about">About Us</Link><Link href="/admissions">Admissions</Link><Link href="/gallery">Gallery</Link><Link href="/news-events">News & Events</Link><Link href="/parents">Parents</Link><Link href="/contact">Contact</Link></nav><Link className="header-cta" href="/admissions">ENQUIRE NOW ↗</Link></header>
+  <header className="site-header"><Link className="brand" href="/"><Image src="/assets/hero-of-knowledge-school-logo.jpg" alt="Official Hero of Knowledge School crest" width={58} height={58} /><span><b>HERO OF KNOWLEDGE</b><small>SCHOOL</small></span></Link><nav className="nav route-nav"><Link href="/">Home</Link><Link href="/about">About Us</Link><Link href="/admissions">Admissions</Link><Link href="/gallery">Gallery</Link><Link href="/news-events">News & Events</Link><Link href="/parents">Parents</Link><Link href="/contact">Contact</Link></nav><Link className="header-cta" href="/admissions">ENQUIRE NOW ↗</Link></header>
   <section className="route-hero"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL / {data.eyebrow}</div><h1>{data.title}</h1><p className="route-lead">{data.lead}</p></section>
   <section className="route-content"><div className="route-copy">{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href} href={link.href}>{link.label} ↗</Link>)}</div></div><aside className="route-aside"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL</div><h2>Knowledge<br/><em>Enlightens</em><br/>The Mind</h2><p>Creche · Nursery · Primary</p></aside></section>
   <footer className="route-footer"><span>© {new Date().getFullYear()} Hero of Knowledge School</span><span>Website by ETHAN DIGITALS</span><Link href="/">BACK TO HOME ↑</Link></footer>
