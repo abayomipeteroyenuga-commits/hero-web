@@ -1,9 +1,9 @@
-"use client";
+import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
+import SiteHeader from "../components/site-header";
+import { notFound } from "next/navigation";
 
-const pages: Record<string,{eyebrow:string,title:string,lead:string,body:string[],links:{label:string,href:string}[]}> = {
+const pages: Record<string,{title:string,eyebrow:string,lead:string,body:string[],links:{label:string,href:string}[]}> = {
   about:{eyebrow:"ABOUT OUR SCHOOL",title:"More than a school. A place to flourish.",lead:"Every child has something remarkable within them.",body:["Hero of Knowledge School serves children across Creche, Nursery and Primary stages. We believe in balanced development: academic foundations, discovery, confidence, kindness and strong character.","Our aim is to create a warm and supportive environment where children are encouraged to discover their gifts, build confidence and develop a love of learning."],links:[{label:"Founders Corner",href:"/founders-corner"},{label:"Our Values",href:"/values"}]},
   "founders-corner":{eyebrow:"FOUNDERS CORNER",title:"A vision built around every child.",lead:"A school's story begins with a belief in what children can become.",body:["Founders Corner shares the vision, values and aspirations behind Hero of Knowledge School.","The approved founder profile, photograph and personal message can be added here when supplied by the school. No personal biography has been invented."],links:[{label:"About Our School",href:"/about"}]},
   values:{eyebrow:"OUR VALUES",title:"Growing minds. Building character.",lead:"Knowledge, character and possibility.",body:["We are committed to helping children become confident learners, thoughtful friends and responsible members of their community.","Knowledge: strong foundations for lifelong growth. Character: values that guide every step. Possibility: room to discover every gift."],links:[{label:"Why Choose Us",href:"/why-choose-us"}]},
@@ -16,15 +16,30 @@ const pages: Record<string,{eyebrow:string,title:string,lead:string,body:string[
   faqs:{eyebrow:"FREQUENTLY ASKED QUESTIONS",title:"Helpful answers for families.",lead:"A few things parents often want to know.",body:["Which age groups does the school serve? Hero of Knowledge School provides Creche, Nursery and Primary education.","How do I begin admission? Contact the school to ask about availability, school visits and registration requirements.","Can I arrange a school visit? Please contact the school office to arrange a suitable visit.","Where can I get current fees and term dates? Request the latest approved information directly from the school office."],links:[{label:"Admissions",href:"/admissions"},{label:"Contact Us",href:"/contact"}]},
   contact:{eyebrow:"CONTACT AND ENQUIRIES",title:"We'd love to hear from you.",lead:"Speak with Hero of Knowledge School.",body:["Whether you are exploring admission or have a question about the school, the team will be glad to help.","Use the school's official contact channels to enquire about admission, arrange a school visit or request current school information. Official phone number, email and campus address will be added once confirmed."],links:[{label:"Admissions",href:"/admissions"}]}
 };
-export default async function IndependentPage({params}:{params:Promise<{slug:string}>}) {
- const { slug } = await params;
- const data=pages[slug];
- if(!data) return <main className="inner-page"><h1>Page not found</h1><Link href="/">Return to Home →</Link></main>;
- return <main className="inner-page">
-  <div className="topbar"><span>CRECHE | NURSERY | PRIMARY</span><span>KNOWLEDGE ENLIGHTENS THE MIND</span><Link href="/contact">SCHOOL ENQUIRIES ↗</Link></div>
-  <header className="site-header"><Link className="brand" href="/"><Image src="/assets/hero-of-knowledge-school-logo.jpg" alt="Official Hero of Knowledge School crest" width={58} height={58} /><span><b>HERO OF KNOWLEDGE</b><small>SCHOOL</small></span></Link><nav className="nav route-nav"><Link href="/">Home</Link><Link href="/about">About Us</Link><Link href="/admissions">Admissions</Link><Link href="/gallery">Gallery</Link><Link href="/news-events">News & Events</Link><Link href="/parents">Parents</Link><Link href="/contact">Contact</Link></nav><Link className="header-cta" href="/admissions">ENQUIRE NOW ↗</Link></header>
-  <section className="route-hero"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL / {data.eyebrow}</div><h1>{data.title}</h1><p className="route-lead">{data.lead}</p></section>
-  <section className="route-content"><div className="route-copy">{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href} href={link.href}>{link.label} ↗</Link>)}</div></div><aside className="route-aside"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL</div><h2>Knowledge<br/><em>Enlightens</em><br/>The Mind</h2><p>Creche · Nursery · Primary</p></aside></section>
-  <footer className="route-footer"><span>© {new Date().getFullYear()} Hero of Knowledge School</span><span>Website by ETHAN DIGITALS</span><Link href="/">BACK TO HOME ↑</Link></footer>
- </main>;
+
+type Props = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const page = pages[slug];
+  if (!page) return { title: "Page Not Found" };
+  return {
+    title: page.eyebrow.split(" / ").join(" "),
+    description: page.lead + " " + page.body[0],
+    alternates: { canonical: `/${slug}` },
+    openGraph: { title: page.title, description: page.lead, type: "website" },
+  };
+}
+
+export default async function IndependentPage({ params }: Props) {
+  const { slug } = await params;
+  const data = pages[slug];
+  if (!data) notFound();
+
+  return <main className="inner-page">
+    <SiteHeader />
+    <section className="route-hero"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL / {data.eyebrow}</div><h1>{data.title}</h1><p className="route-lead">{data.lead}</p></section>
+    <section className="route-content"><div className="route-copy">{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href + link.label} href={link.href}>{link.label} ↗</Link>)}</div></div><aside className="route-aside"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL</div><h2>Knowledge<br/><em>Enlightens</em><br/>The Mind</h2><p>Creche · Nursery · Primary</p></aside></section>
+    <footer className="route-footer"><span>© {new Date().getFullYear()} Hero of Knowledge School</span><span>Website by ETHAN DIGITALS</span><Link href="/">BACK TO HOME ↑</Link></footer>
+  </main>;
 }
