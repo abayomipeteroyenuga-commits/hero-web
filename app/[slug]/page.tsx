@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import SiteHeader from "../components/site-header";
 import { notFound } from "next/navigation";
 
@@ -39,7 +40,7 @@ export default async function IndependentPage({ params }: Props) {
   return <main className="inner-page">
     <SiteHeader />
     <section className="route-hero"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL / {data.eyebrow}</div><h1>{data.title}</h1><p className="route-lead">{data.lead}</p></section>
-    <section className="route-content"><div className="route-copy">{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href + link.label} href={link.href}>{link.label} ↗</Link>)}</div></div></section>
+    <section className={slug === "founders-corner" ? "route-content founders-layout" : "route-content"}>{slug === "founders-corner" && <aside className="founder-portrait"><Image src="/founder-udofia.jpg" alt="Pastor Udofia, Founder and Proprietor of Hero of Knowledge Nursery and Primary School" width={360} height={480} priority/><div className="founder-caption"><strong>PASTOR UDOFIA</strong><span>Founder &amp; Proprietor</span></div></aside>}<div className={slug === "founders-corner" ? "route-copy founders-copy" : "route-copy"}>{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href + link.label} href={link.href}>{link.label} ↗</Link>)}</div></div></section>
     <footer className="route-footer"><span>© {new Date().getFullYear()} Hero of Knowledge School</span><span>Website by ETHAN DIGITALS</span><Link href="/">BACK TO HOME ↑</Link></footer>
   </main>;
 }
