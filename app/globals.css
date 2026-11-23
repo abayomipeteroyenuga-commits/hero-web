@@ -23,3 +23,10 @@
 .founder-caption span{font-size:13px;color:#f4d477}
 .founders-copy{max-width:780px}
 @media(max-width:900px){.founders-layout{grid-template-columns:minmax(0,1fr);gap:30px}.founder-portrait{width:min(100%,360px);margin:0 auto}.founders-copy{max-width:none}}
+
+/* Stacked founder portraits on Founders Corner */
+.founder-portraits{display:flex;flex-direction:column;gap:28px;max-width:360px;width:100%}
+.mrs-photo-placeholder{min-height:250px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(145deg,#f4f7fc,#e7edf6);border:1px dashed #aebbd0;color:#53647d}
+.mrs-photo-placeholder span{font-size:13px;font-weight:bold;letter-spacing:2px;color:#1550ad}
+.mrs-photo-placeholder small{font-size:11px}
+@media(max-width:900px){.founder-portraits{margin:0 auto}}
