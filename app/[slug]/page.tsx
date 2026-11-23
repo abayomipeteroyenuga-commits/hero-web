@@ -39,7 +39,7 @@ export default async function IndependentPage({ params }: Props) {
   return <main className="inner-page">
     <SiteHeader />
     <section className="route-hero"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL / {data.eyebrow}</div><h1>{data.title}</h1><p className="route-lead">{data.lead}</p></section>
-    <section className="route-content"><div className="route-copy">{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href + link.label} href={link.href}>{link.label} ↗</Link>)}</div></div><aside className="route-aside"><div className="eyebrow">HERO OF KNOWLEDGE SCHOOL</div><h2>Knowledge<br/><em>Enlightens</em><br/>The Mind</h2><p>Creche · Nursery · Primary</p></aside></section>
+    <section className="route-content"><div className="route-copy">{data.body.map((paragraph,i)=><p key={i}>{paragraph}</p>)}<div className="route-actions">{data.links.map(link=><Link className="button button-primary" key={link.href + link.label} href={link.href}>{link.label} ↗</Link>)}</div></div></section>
     <footer className="route-footer"><span>© {new Date().getFullYear()} Hero of Knowledge School</span><span>Website by ETHAN DIGITALS</span><Link href="/">BACK TO HOME ↑</Link></footer>
   </main>;
 }
