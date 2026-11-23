@@ -13,3 +13,13 @@
 @media(max-width:1050px){.site-header .nav{gap:0}.site-header .nav-item>a,.site-header .nav-item>button{padding-left:6px;padding-right:6px;font-size:9px}}
 @media(max-width:760px){.site-header .nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;padding:10px 5% 16px;box-shadow:0 15px 25px #071b4b20;flex-direction:column;align-items:stretch}.site-header .nav.nav-open{display:flex}.site-header .nav-item>a,.site-header .nav-item>button{width:100%;text-align:left;padding:13px 5px;font-size:13px}.site-header .dropdown{position:static;width:100%;box-shadow:none;border:0;padding-left:15px}.site-header .menu-toggle{display:block;margin-left:auto;background:#fff;border:1px solid #e7ebf1;padding:10px;color:#061b4b;font-size:10px;font-weight:bold}.site-header .header-cta{font-size:8px;padding:11px 8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+/* Founders Corner portrait */
+.founders-layout{grid-template-columns:minmax(260px,360px) minmax(0,1fr);align-items:start;gap:clamp(35px,6vw,80px)}
+.founder-portrait{margin:0;background:#fff;max-width:360px}
+.founder-portrait img{display:block;width:100%;height:auto;object-fit:contain;background:#fff}
+.founder-caption{display:flex;flex-direction:column;gap:6px;padding:18px 20px;background:#061b4b;color:#fff;border-bottom:4px solid #d6a735}
+.founder-caption strong{font-size:17px;letter-spacing:.7px}
+.founder-caption span{font-size:13px;color:#f4d477}
+.founders-copy{max-width:780px}
+@media(max-width:900px){.founders-layout{grid-template-columns:minmax(0,1fr);gap:30px}.founder-portrait{width:min(100%,360px);margin:0 auto}.founders-copy{max-width:none}}
