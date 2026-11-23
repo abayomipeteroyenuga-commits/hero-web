@@ -265,3 +265,13 @@ footer{background:#04132f}
   .hero-copy>p{font-size:14px;line-height:1.85}
   .home-discover .feature-grid article{padding:19px}
 }
+
+
+/* School gallery */
+.gallery-route { max-width: 1180px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; width: 100%; }
+.gallery-card { margin: 0; overflow: hidden; border-radius: 18px; background: #fff; border: 1px solid rgba(14, 40, 91, .12); box-shadow: 0 12px 32px rgba(10, 31, 73, .09); }
+.gallery-photo { width: 100%; aspect-ratio: 1 / 1; background-repeat: no-repeat; background-color: #eef2f8; }
+.gallery-card figcaption { padding: 14px 16px 16px; color: #10244f; font-size: .96rem; line-height: 1.45; font-weight: 650; }
+@media (max-width: 760px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; } .gallery-card { border-radius: 13px; } .gallery-card figcaption { padding: 11px; font-size: .85rem; } }
+@media (max-width: 420px) { .gallery-grid { grid-template-columns: 1fr; } }
