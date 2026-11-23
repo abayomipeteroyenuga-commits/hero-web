@@ -1,0 +1,12 @@
+MRS. UDOFIA PORTRAIT — GIT UPLOAD
+
+1. Open your GitHub repository: abayomipeteroyenuga-commits/hero-web
+2. Open the public folder.
+3. Upload the file mrs-udofia.jpg into public/.
+4. The final path must be: public/mrs-udofia.jpg
+5. Commit the upload to the main branch.
+
+The website page should reference this exact path:
+  /mrs-udofia.jpg
+
+Do not upload this ZIP itself into public. Extract it first, then upload mrs-udofia.jpg.
