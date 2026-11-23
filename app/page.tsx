@@ -38,8 +38,8 @@ export default function Home() {
       <div className="hero-copy">
         <label className="eyebrow">WELCOME TO HERO OF KNOWLEDGE SCHOOL</label>
         <h1>Where bright beginnings become <em>bold futures.</em></h1>
-        <p>Welcome to a school community dedicated to helping every child learn, grow and discover their potential. We provide Creche, Nursery and Primary education in an environment where children are encouraged to build confidence, curiosity and strong foundations for life.</p>
-        <div className="hero-actions"><a className="button button-primary" href="/about">WELCOME — DISCOVER OUR SCHOOL <span>↗</span></a><a className="button button-light" href="/admissions">ADMISSIONS INFORMATION</a></div>
+        <p>Welcome to Hero of Knowledge Nursery and Primary School. We are committed to providing a supportive learning environment where every child is encouraged to develop knowledge, confidence, strong character and a lifelong love of learning.</p>
+        <div className="hero-actions"><a className="button button-primary" href="/about">DISCOVER OUR SCHOOL <span>↗</span></a><a className="button button-light" href="/admissions">ADMISSIONS INFORMATION</a></div>
         <small className="hero-note">CRECHE · NURSERY · PRIMARY EDUCATION</small>
       </div>
       <div className="hero-image"><div className="logo-frame"><Image src="/assets/hero-of-knowledge-school-logo.jpg" alt="Official Hero of Knowledge School crest and motto" width={620} height={620} priority /></div><div className="image-caption">A PLACE TO LEARN, GROW AND BELONG</div></div>
@@ -48,12 +48,12 @@ export default function Home() {
 
     <section className="section home-welcome">
       <label className="eyebrow">A WARM WELCOME</label>
-      <div className="split"><h2>Every child's journey<br/>deserves a <em>great beginning.</em></h2><div><p className="lead">At Hero of Knowledge School, we believe that each child has the ability to learn, grow and make a meaningful contribution.</p><p>We are delighted to welcome families to explore our school, learn about our educational stages and get to know the community. Use the dedicated pages to find the information you need.</p></div></div>
+      <div className="split"><h2>Every child's journey<br/>deserves a <em>great beginning.</em></h2><div><p className="lead">At Hero of Knowledge Nursery and Primary School, we believe every child has the ability to learn, grow and make a meaningful contribution to society.</p><p>We invite families to discover our history, values, educational stages and the community that makes our school special.</p></div></div>
     </section>
 
     <section className="section home-discover">
       <label className="eyebrow">EXPLORE HERO OF KNOWLEDGE SCHOOL</label>
-      <div className="split"><h2>Find your way<br/><em>around our school.</em></h2><p>Each section has its own page, with information focused on that subject. Choose a page below to explore.</p></div>
+      <div className="split"><h2>Find your way<br/><em>around our school.</em></h2><p>Explore the sections below to learn more about our school, our educational approach and the information available to families.</p></div>
       <div className="feature-grid home-page-links">{destinations.map(item => <article key={item.number}><b>{item.number}</b><h3>{item.title}</h3><p>{item.description}</p><a className="text-link" href={item.href}>{item.link} ↗</a></article>)}</div>
     </section>
 
