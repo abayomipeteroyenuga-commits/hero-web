@@ -10,7 +10,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: { default: "Hero of Knowledge School | Creche, Nursery & Primary", template: "%s | Hero of Knowledge School" },
-  description: "Discover Hero of Knowledge School, offering Creche, Nursery and Primary education in a caring environment where children learn, grow and build strong foundations.",
+  description: "Discover Hero of Knowledge Nursery and Primary School, offering Creche, Nursery and Primary education with a commitment to learning, character and strong foundations for life.",
   applicationName: "Hero of Knowledge School",
   keywords: ["Hero of Knowledge School", "Creche", "Nursery school", "Primary school", "early years education", "primary education"],
   icons: { icon: "/assets/hero-of-knowledge-school-logo.jpg", apple: "/assets/hero-of-knowledge-school-logo.jpg" },
